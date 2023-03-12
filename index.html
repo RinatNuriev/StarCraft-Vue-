@@ -87,14 +87,20 @@
         <div class="app" v-show="showQuestion">
             <div class="app__header">
                 <div class="app__header-inner">
-                    <div class="app__count"># 1</div>
-                    <div class="app__text">Текст вопроса</div>
+                    <div class="app__count"># {{number + 1}}</div>
+                    <div class="app__text">{{ questions[number][0] }}</div>
                 </div>
             </div>
             <div class="app__body">
-                <button class="app__btn">
-                    <div class="app__btn-text">Ответ</div>
+
+                <button class="app__btn"
+                    v-for="(answer, i) in questions[number][1]"
+                    v-on:click="nextQuestions(questions[number][2][i])">
+
+                    <div class="app__btn-text">{{(i+1) + '. ' + answer}}</div>
+
                 </button>
+
                 <button class="app__btn btn__back" @click="goToMain">
                     <i class="fa fa-reply" aria-hidden="true"></i>
                 </button>
@@ -103,23 +109,7 @@
 
         <div class="app" v-show="showSocial">
             <div class="app__body">
-                <a target="_blank" href="https://vk.com" class="app__btn">
-                    <i class="fa fa-vk"></i>
-                    <div class="app__btn-text">VK</div>
-                </a>
-                <a target="_blank" href="https://vk.com" class="app__btn">
-                    <i class="fa fa-vk"></i>
-                    <div class="app__btn-text">VK</div>
-                </a>
-                <a target="_blank" href="https://vk.com" class="app__btn">
-                    <i class="fa fa-vk"></i>
-                    <div class="app__btn-text">VK</div>
-                </a>
-                <a target="_blank" href="https://vk.com" class="app__btn">
-                    <i class="fa fa-vk"></i>
-                    <div class="app__btn-text">VK</div>
-                </a>
-                <a target="_blank" href="https://vk.com" class="app__btn">
+                <a target="_blank" href="https://vk.com/rinaaaatka" class="app__btn">
                     <i class="fa fa-vk"></i>
                     <div class="app__btn-text">VK</div>
                 </a>
@@ -239,6 +229,15 @@
                     this.showResult = true
 
                     this.resultRace = race
+                },
+                nextQuestions(answer) {
+                    if(this.number == 24) {
+                        this.number = 0
+                        // this.endGame()
+                    } else {
+                        this.number++
+                    }
+                    eval(answer)
                 }
             }
         })
