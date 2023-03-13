@@ -86,6 +86,7 @@ i.fa {
     line-height: 20px;
     color: #fff;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .app__btn:focus {
@@ -170,6 +171,7 @@ i.fa {
     border: 5px solid rgba(1, 88, 154, 0.5);
     background-color: rgba(25, 121, 211, 0.8);
     margin-bottom: 7px;
+    cursor: pointer;
 }
 
 .app_result:last-child {
@@ -248,8 +250,9 @@ i.fa-star {
 
 .results__text-box {
     margin-bottom: 20px;
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 22px;
+    line-height: 1.5;
+    word-spacing: 0.1rem;
 }
 
 .results__text {
