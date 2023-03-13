@@ -20,6 +20,7 @@ i.fa {
     background: url('../img/background__main.jpg');
     background-repeat: repeat-x;
     animation: slide 90s linear infinite;
+    
 }
 
 .app {
@@ -28,6 +29,8 @@ i.fa {
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+    max-width: 1210px;
+    margin: 0 auto;
 }
 
 @keyframes slide {
